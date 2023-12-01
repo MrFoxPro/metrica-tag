@@ -65,7 +65,7 @@ const inputOptions: RollupOptions = {
                     construct: 'Metrika',
                     callbackPostfix: '',
                     version,
-                    host: 'mc.yandex.ru',
+                    host: process.env.YM_HOST ?? 'ym.faundr.ru',
                 }),
                 'process.env.VERSION': `"${process.env.VERSION}"`,
             },
@@ -118,7 +118,7 @@ const inputOptions: RollupOptions = {
 };
 const outputOptions: OutputOptions = {
     file: path,
-    format: 'iife',
+    format: 'esm',
     freeze: false,
     banner: 'try {',
     footer: '} catch (e) { }',
